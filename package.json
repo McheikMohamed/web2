@@ -4,8 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "nodemon ./bin/www ",
+    "eslint": "npx eslint .",
+    "prettier": "npx prettier . --check",
+    "prettier:fix": "npx prettier . --write",
+    "code:fix": "npx prettier . --write && npx eslint . --fix ",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.0.1",
+    "prettier": "3.1.0"
+  }
 }
