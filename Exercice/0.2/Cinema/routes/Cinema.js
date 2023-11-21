@@ -38,16 +38,18 @@ router.get('/', (req, res, next) => {
         let copyAffiche = Affiche.filter(
             (film) => film.duration >= dureeMinimum
         )
-        res.json(copyAffiche.length > 0 ? copyAffiche : Affiche)
-    } else {
-        res.json(Affiche)
+        res.json(copyAffiche ?? Affiche)
     }
+    res.json(Affiche)
 })
 
 router.get('/:id', (req, res, next) => {
     console.log('Get /cinema/id')
 
     const idFound = Affiche.findIndex((film) => film.id == req.params.id)
+
+    if (!Affiche[idFound]) res.sendStatus(404)
+
     return res.json(Affiche[idFound])
 })
 
@@ -74,9 +76,23 @@ router.post('/', (req, res, next) => {
         link: link,
     }
 
-    Affiche.push(newFilm)
-
-    return res.json(newFilm)
+    if (Affiche.find((film) => film.title == newFilm.title)) {
+        res.sendStatus(409)
+    } else {
+        Affiche.push(newFilm)
+        return res.json(newFilm)
+    }
 })
+
+router.delete('/:id', (req, res, next) => {
+    const idFound = Affiche.findIndex((film) => film.id == req.params.id)
+    if (idFound < 0) res.sendStatus(404)
+
+    const filmRemovedFromAffiche = Affiche.splice(idFound, 1)
+    const filmRemoved = filmRemovedFromAffiche[0]
+    res.json(filmRemoved)
+})
+
+
 
 module.exports = router
