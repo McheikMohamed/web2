@@ -7,7 +7,7 @@ GET {{baseurl}}/cinema
 GET {{baseurl}}/cinema/?minimumDuration=140
 
 ### Get film from ID
-GET {{baseurl}}/cinema/7
+GET {{baseurl}}/cinema/4
 
 ###Post new Film
 POST {{baseurl}}/cinema/

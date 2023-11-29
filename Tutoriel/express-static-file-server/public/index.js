@@ -1,10 +1,10 @@
-const body = document.querySelector("body");
+const body = document.querySelector('body')
 
-body.addEventListener("click", startOrStopSound);
+body.addEventListener('click', startOrStopSound)
 
-function startOrStopSound() {
-  const myAudioPlayer = document.querySelector("#audioPlayer");
+function startOrStopSound () {
+  const myAudioPlayer = document.querySelector('#audioPlayer')
 
-  if (myAudioPlayer.paused) myAudioPlayer.play();
-  else myAudioPlayer.pause();
+  if (myAudioPlayer.paused) myAudioPlayer.play()
+  else myAudioPlayer.pause()
 }

@@ -5,7 +5,7 @@
     "scripts": {
         "start:node": "node ./bin/www",
         "start": "nodemon ./bin/www",
-        "prettier": "npx prettier . --write"
+        "code:fix": "npx prettier . --write && npx eslint . --fix"
     },
     "dependencies": {
         "cookie-parser": "~1.4.4",

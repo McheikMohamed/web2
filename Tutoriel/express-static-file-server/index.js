@@ -1,10 +1,10 @@
-const express = require('express');
-const app = express();
+const express = require('express')
+const app = express()
 
-app.use(express.static('public'));
+app.use(express.static('public'))
 
-const PORT = 7777;
+const PORT = 7777
 
 app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+  console.log(`Server running on port ${PORT}`)
+})
