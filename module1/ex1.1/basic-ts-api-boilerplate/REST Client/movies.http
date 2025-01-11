@@ -1,0 +1,34 @@
+@baseurl =http://localhost:3000
+
+###Read all movies
+Get http://localhost:3000/movies
+
+###Read movie with id
+Get {{baseurl}}/movies/1
+
+###Read movies filtered with minimum duration
+Get {{baseurl}}/movies/?min-duration=143
+
+###Create a movie
+POST {{baseurl}}/movies
+Content-Type: application/json
+
+{
+    "title": "The last samurai",
+    "director": "Edward Zwick",
+    "duration": 154,
+    "budget": 140000000,
+    "description": "An American military advisor embraces the Samurai culture he was hired to destroy after he is captured in battle.",
+    "imageUrl": "https://www.imdb.com/title/tt0325710/mediaviewer/rm4244716544"
+}
+
+###Delete a movie with id
+DELETE {{baseurl}}/movies/5
+
+###Update a movie with id
+PATCH {{baseurl}}/movies/1
+Content-Type: application/json
+
+{
+    "title":"L'attaque des gitans"
+}

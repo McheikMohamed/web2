@@ -8,4 +8,14 @@ interface Movie {
   imageUrl ?: string;
 }
 
-export type { Movie };
+type newMovie = Omit<Movie,"id">;
+
+interface Text {
+  id:string;
+  content:string;
+  level:string;
+}
+
+type newText = Omit<Text,"id">;
+
+export type { Movie,newMovie,Text,newText };
